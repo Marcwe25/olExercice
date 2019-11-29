@@ -1,0 +1,36 @@
+<h2>Item Transaction</h2>
+
+<hr/>
+<div *ngIf="itemValue">
+    <div>
+        <label><b>name: </b></label> {{itemValue.name}}
+    </div>
+
+    <div>
+        <label><b>inventoryCode: </b></label> {{itemValue.inventoryCode}}
+    </div>
+    <div>
+        <label><b>current amount: </b></label> {{itemValue.amount}}
+    </div>
+
+    <div [hidden]="submitted" style="width: 400px;">
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">new deposit</label>
+                <input type="number" class="form-control col-sm-3" id="deposit" required [(ngModel)]="transaction.deposit" name="deposit">
+            </div>
+
+            <div class="form-group">
+                <label for="name">new withdrawal</label>
+                <input type="number" class="form-control col-sm-3" id="withdrawal" required [(ngModel)]="transaction.withdrawal" name="withdrawal">
+            </div>
+
+            <button type="submit" class="btn btn-success m-2">Submit</button>
+            <button (click)="gotoItemDetails(itemId)" class="btn btn-danger m-2">cancel</button>
+        </form>
+    </div>
+</div>
+
+<br>
+<br>
+<br>

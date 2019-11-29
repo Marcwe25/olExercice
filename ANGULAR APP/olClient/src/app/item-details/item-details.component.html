@@ -1,0 +1,29 @@
+<h2>Item Details</h2>
+
+<hr/>
+<div *ngIf="item">
+    <div>
+        <label><b>number: </b></label> {{item.number}}
+    </div>
+    <div>
+        <label><b>name: </b></label> {{item.name}}
+    </div>
+    <div>
+        <label><b>amount: </b></label> {{item.amount}}
+    </div>
+    <div>
+        <label><b>inventoryCode: </b></label> {{item.inventoryCode}}
+    </div>
+
+    <div>
+        <label class="m-auto">
+        <button (click)="update(item.number)" class="btn m-2 btn-primary">Edit Item</button>
+        <button (click)="transaction(item.number)" class="btn m-2 btn-primary">Transaction</button>
+        <button (click)="list()" class="btn btn-primary">Back to Item List</button>
+        <br>
+    </label>
+    </div>
+</div>
+
+<br>
+<br>
