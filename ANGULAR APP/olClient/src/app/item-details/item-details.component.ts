@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemHalForm } from '../shared/item-hal-form';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ItemService } from '../item.service';
+import { ItemHalForm } from '../shared/ItemHalForm';
 
 @Component({
   selector: 'app-item-details',
@@ -16,7 +16,7 @@ export class ItemDetailsComponent implements OnInit {
               private itemService: ItemService) { }
 
   ngOnInit() {
-    this.item = new ItemHalForm();
+    this.item = {} as ItemHalForm;
 
     this.id = this.route.snapshot.params.number;
 

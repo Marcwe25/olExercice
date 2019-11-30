@@ -1,6 +1,7 @@
 import { ItemDTO } from './ItemDTO';
 
-export class Embedded {
+export interface Embedded {
+
     itemDTOSummaries: ItemDTO[];
 
 }

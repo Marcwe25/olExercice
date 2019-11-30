@@ -1,7 +1,9 @@
-import { Property } from './property';
+import { Property } from './Property';
 
-export class Template {
+export interface Template {
+
     title: string;
     method: string;
     properties: Property[];
+
 }
