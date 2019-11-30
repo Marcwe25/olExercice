@@ -17,21 +17,21 @@ export class UpdateItemComponent implements OnInit {
               private itemService: ItemService) { }
 
   ngOnInit() {
-    this.itemValue = new ItemValue();
+    this.itemValue = {} as ItemValue;
     this.id = this.route.snapshot.params.number;
 
     this.itemService.getItem(this.id)
       .subscribe(data => {
         console.log(data);
-        this.itemValue = new ItemValue();
-        this.itemValue.setValueFromItem(data);
+        this.itemValue = {} as ItemValue;
+        this.itemValue = data;
       }, error => console.log(error));
   }
 
   updateItemValue() {
     this.itemService.updateItem(this.id, this.itemValue)
       .subscribe(data => console.log(data), error => console.log(error));
-    this.itemValue = new ItemValue();
+    this.itemValue = {} as ItemValue;
     this.gotoItemDetails(this.id);
   }
 

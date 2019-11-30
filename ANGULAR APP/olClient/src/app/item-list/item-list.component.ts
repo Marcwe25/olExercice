@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../item.service';
 import { Router } from '@angular/router';
-import { ItemHalForm } from '../shared/item-hal-form';
+import * as $ from 'jquery';
+import { ItemHalForm } from '../shared/ItemHalForm';
 import { ItemDTO } from '../shared/ItemDTO';
 import { Link } from '../shared/link';
-import * as $ from 'jquery';
 
 @Component({
   selector: 'app-item-list',
@@ -53,7 +53,7 @@ export class ItemListComponent implements OnInit {
   }
 
   next() {
-    this.tempLink = new Link();
+    this.tempLink = {} as Link;
     this.tempLink = this.getLinkWithRel('next');
     if (this.tempLink != null && Object.keys(this.tempLink).length > 0) {
     this.itemService.getItemsListFromLink(this.tempLink).subscribe(result => {
@@ -64,7 +64,7 @@ export class ItemListComponent implements OnInit {
   }
 
   previous() {
-    this.tempLink = new Link();
+    this.tempLink = {} as Link;
     this.tempLink = this.getLinkWithRel('prev');
     if (this.tempLink != null && Object.keys(this.tempLink).length > 0) {
       this.itemService.getItemsListFromLink(this.tempLink).subscribe(result => {

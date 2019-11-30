@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CreateItemComponent implements OnInit {
 
-  itemValue: ItemValue = new ItemValue();
+  itemValue: ItemValue = {} as ItemValue;
   submitted = false;
 
   constructor(private itemService: ItemService,
@@ -21,13 +21,13 @@ export class CreateItemComponent implements OnInit {
 
   newItem(): void {
     this.submitted = false;
-    this.itemValue = new ItemValue();
+    this.itemValue = {} as ItemValue;
   }
 
   save() {
     this.itemService.createItem(this.itemValue)
       .subscribe(data => console.log(data), error => console.log(error));
-    this.itemValue = new ItemValue();
+    this.itemValue = {} as ItemValue;
     this.gotoList();
   }
 

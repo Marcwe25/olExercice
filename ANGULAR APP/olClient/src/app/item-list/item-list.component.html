@@ -6,7 +6,7 @@
         <table class="table table-striped">
 
             <tbody>
-                <tr *ngFor="let item of itemsArray">
+                <tr *ngFor="let item of items._embedded">
                     <td>{{item.name}}</td>
                     <td>{{item.amount}}</td>
                     <td>{{item.inventoryCode}}</td>

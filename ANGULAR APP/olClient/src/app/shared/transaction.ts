@@ -1,10 +1,5 @@
-export class Transaction {
+export interface Transaction {
 
     deposit: number;
     withdrawal: number;
-
-    constructor() {
-        this.deposit = 0;
-        this.withdrawal = 0;
-    }
 }

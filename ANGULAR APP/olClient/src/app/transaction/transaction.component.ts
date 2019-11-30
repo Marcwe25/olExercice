@@ -20,22 +20,24 @@ export class TransactionComponent implements OnInit {
               private itemService: ItemService) { }
 
   ngOnInit() {
-    this.itemValue = new ItemValue();
+    this.itemValue = {} as ItemValue;
     this.itemId = this.route.snapshot.params.number;
-    this.transaction = new Transaction();
+    this.transaction = {} as Transaction;
 
     this.itemService.getItem(this.itemId)
       .subscribe(data => {
-        this.itemValue = new ItemValue();
-        this.itemValue.setValueFromItem(data);
+        this.itemValue = {} as ItemValue;
+        this.itemValue.amount = data.amount;
+        this.itemValue.inventoryCode = data.inventoryCode;
+        this.itemValue.name = data.name;
       }, error => console.log(error));
   }
 
   updateTransactionValue() {
     this.itemService.updateTransaction(this.itemId, this.transaction)
       .subscribe(data => console.log(data), error => console.log(error));
-    this.itemValue = new ItemValue();
-    this.transaction = new Transaction();
+    this.itemValue =  {} as ItemValue;
+    this.transaction = {} as Transaction;
     this.gotoItemDetails(this.itemId);
   }
 

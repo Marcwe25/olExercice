@@ -1,3 +1,5 @@
-export class Property {
+export interface Property {
+
     name: string;
+
 }

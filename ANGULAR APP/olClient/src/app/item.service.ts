@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ItemValue } from './shared/itemValue';
-import { ItemHalForm } from './shared/item-hal-form';
 import { Transaction } from './shared/transaction';
-import { Link } from './shared/link';
 import { URLSearchParams } from 'url';
+import { ItemHalForm } from './shared/ItemHalForm';
+import { Link } from './shared/link';
+import { ItemDTO } from './shared/ItemDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +23,8 @@ export class ItemService {
     this.pageNumber = 0;
   }
 
-  getItem(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+  getItem(id: number): Observable<ItemHalForm> {
+    return this.http.get<ItemHalForm>(`${this.baseUrl}/${id}`);
   }
 
   createItem(item: ItemValue): Observable<any> {
