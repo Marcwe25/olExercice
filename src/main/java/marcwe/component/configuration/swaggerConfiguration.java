@@ -53,7 +53,7 @@ public class swaggerConfiguration {
 				new springfox.documentation.service.Contact("Marc Weiss", "https://github.com/Marcwe25", "marcwe@gmail.com"),
 				"license free",
 				"license url",
-				new ArrayList<VendorExtension>() 
+				Collections.emptyList()
 				);
 	}
 }
